@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var userListBody = $('.userList tbody');
+    var numberUser =0;
 
     //@todo store and somehow update the current number of users
 
@@ -10,6 +11,8 @@ $(document).ready(function() {
         event.preventDefault();
         event.stopPropagation();
 
+
+
         if (this.checkValidity() === false) {
 
             $(this).addClass('was-validated');
@@ -17,29 +20,60 @@ $(document).ready(function() {
             return false;
         }
 
-        //@todo
-        //1. get values
-        //2. create a new element
-        //3. somehow add them to userListBody
-        //4. update number of current users
-        //5. clear entries from the form
-        //6. maybe do something else... :-)
 
-        //your code follows here
+
+
+
+
 
         return false;
     });
 
 
+
+
+
+    $('.addTrigger').click(function(){
+
+        //1. get values
+
+        var usereingabe = $("#username").val();
+
+        //2. create a new element
+        this.username = document.getElementById(username);
+        //3. somehow add them to userListBody
+        usereingabe.add().userListBody;
+
+        //4. update number of current users
+        numberUser ++;
+        console.log(numberUser);
+
+         //5. clear entries from the form
+
+        $("#form")[0].reset();
+
+
+    }
+
     $('.deleteTrigger').click(function() {
         //@todo
         //1. remove current user from dom
-        //2. update number of current users
 
-        //your code follows here
+        $( "input[type=checkbox][name=löschen]:checked" ).val().remove();
+
+
+        //2. update number of current users
+        numberUser--;
+        console.log(numberUser);
+
+
+
+
+
 
 
     });
+
 
     //maybe some code follows here
 
